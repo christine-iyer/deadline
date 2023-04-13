@@ -1,5 +1,6 @@
 import InputField from './components/InputField'
-import UploadField from './components/UploadField'
+
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,7 +11,7 @@ function App() {
        
         <p>
           <InputField />
-          <UploadField />
+
         </p>
         
       </header>
