@@ -1,8 +1,8 @@
-const router = require('exress').Router()
-const userCtrl = require('../controllers/api/users')
-const checkToken = require('../config/checkToken')
-const ensureLoggedIn = require('../config/ensureLoggedIn')
-const user = require('../models/user')
+const router = require('express').Router()
+const userCtrl = require('../../controllers/api/users')
+const checkToken = require('../../config/checkToken')
+const ensureLoggedIn = require('../../config/ensureLoggedIn')
+const user = require('../../models/user')
 
 //sign up - /api/users
 router.post('/',userCtrl.signUp, userCtrl.respondWithToken)
