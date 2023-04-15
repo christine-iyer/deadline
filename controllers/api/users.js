@@ -33,11 +33,11 @@ const login = async (req, res, next) => {
     }
 }
 
-const getBookmarksByUser = async (req, res, next) => {
+const getInputsByUser = async (req, res, next) => {
     try {
-        const user = await User.findOne({ email: res.locals.data.email }).populate('bookmarks').sort('bookmarks.createdAt').exec()
-        const bookmarks = user.bookmarks
-        res.locals.data.bookmarks = bookmarks 
+        const user = await User.findOne({ email: res.locals.data.email }).populate('inputs').sort('inputs.createdAt').exec()
+        const inputs = user.inputs
+        res.locals.data.inputs = inputs 
         next()
     } catch (error) {
         res.status(400).json({ msg: error.message })
@@ -52,17 +52,17 @@ const respondWithUser = (req, res) => {
     res.json(res.locals.data.user)
 }
 
-const respondWithBookmarks = (req, res) => {
-    res.json(res.locals.data.bookmarks)
+const respondWithInputs = (req, res) => {
+    res.json(res.locals.data.inputs)
 }
 
 
 module.exports = {
     signUp,
     login,
-    getBookmarksByUser,
+    getInputsByUser,
     respondWithToken,
-    respondWithBookmarks,
+    respondWithInputs,
     respondWithUser
 }
 
