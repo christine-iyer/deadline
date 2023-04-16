@@ -2,9 +2,9 @@ const { Schema, model } = require('mongoose')
 
 const inputSchema = new Schema({
 email: { type: String, required: true},
-title: { type: String, required: true },
+title: { type: String },
 check:  Boolean ,
-link: { type: String, required: true }
+link: { type: String }
 }, {
      timestamps:true
 })

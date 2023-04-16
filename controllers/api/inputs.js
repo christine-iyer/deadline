@@ -9,18 +9,17 @@ const destroyInput = async (req, res, next) => {
           res.locals.data.input = deletedInput
           next()
      } catch (error) {
-          res.status(400).json({ mes: error.message })
+          res.status(400).json({ msg: error.message })
      }
 }
 const updateInput = async (req, res, next) => {
      try {
           const updatedInput = await
-               Input.findByIdAndUpdate(req.params.id, req.body, {
-               })
+               Input.findByIdAndUpdate(req.params.id, req.body, { new: true })
           res.locals.data.input = updatedInput
           next()
      } catch (error) {
-          res.status(400).json({ mes: error.message })
+          res.status(400).json({ msg: error.message })
      }
 }
 const createInput = async (req, res, next) => {
@@ -29,7 +28,7 @@ const createInput = async (req, res, next) => {
          const user = await User.findOne({ email: res.locals.data.email })
          user.inputs.addToSet(createdInput)
          await user.save()
-         res.locals.data.Input = createdInput
+         res.locals.data.input = createdInput
          next()
      } catch (error) {
          res.status(400).json({ msg: error.message })
@@ -37,7 +36,7 @@ const createInput = async (req, res, next) => {
  }
  
  const respondWithInput = (req, res) => {
-     res.json(res.locals.data.item)
+     res.json(res.locals.data.input)
  }
  module.exports = {
      destroyInput, 
