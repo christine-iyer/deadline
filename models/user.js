@@ -1,14 +1,13 @@
 require('dotenv').config()
 const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt')
-
 const crypto = require('crypto')
 const SALT_ROUNDS = 6
 
 const userSchema = new Schema({
-     name: {type:String, required: true},
-     email: {type:String, required:true, unique: true, trim: true, lowercase: true },
-     password: {type:String, required:true, trim:true, minLength: 5 }, 
+     name: { type: String, required: true },
+     email: { type: String, required: true, unique: true, trim: true, lowercase: true },
+     password: { type: String, require: true, trim: true, minLength: 5 }, 
      inputs: [{ type: Schema.Types.ObjectId, ref: 'Input' }]
 }, {
      timestamps:true,
