@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 
 export default function BasicExample(props) {
      const [form, setForm] = useState({
-          email: "",
+          heading: "",
           title: "",
           check: false,
           link: ""
@@ -21,12 +21,12 @@ export default function BasicExample(props) {
                <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Create Entry</Form.Label>
                     <Form.Control
-                         type="email"
-                         value={form.email}
+                         type="heading"
+                         value={form.heading}
                          onChange={handleChange}
-                         placeholder="Enter email" />
+                         placeholder="Enter heading" />
                     <Form.Text className="text-muted">
-                         We'll never share your email with anyone else.
+                         We'll never share your heading with anyone else.
                     </Form.Text>
                </Form.Group>
 
@@ -55,10 +55,6 @@ export default function BasicExample(props) {
                          placeholder="Link" />
                </Form.Group>
 
-               <Form.Group controlId="formFile" className="mb-3">
-                    <Form.Label className='NewEntry'>Default file input example</Form.Label>
-                    <Form.Control type="file" />
-               </Form.Group>
                <Button onSubmit={handleChange}></Button>
           </Form>
      );
