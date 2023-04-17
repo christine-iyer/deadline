@@ -1,10 +1,10 @@
 const { Schema, model } = require('mongoose')
 
 const bookmarkSchema = new Schema({
-heading: { type: String, required: true },
-title: { type: String, required: true },
-check:  { Boolean } ,
-link: { type: String, required: true }
+heading: String,
+title: String,
+check:  Boolean,
+link: String
 }, {
      timestamps:true
 })
