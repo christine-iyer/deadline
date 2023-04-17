@@ -9,9 +9,9 @@ router.post('/',userCtrl.signUp, userCtrl.respondWithToken)
 
 
 //logIn /api/users/login
-router.post('/login',userCtrl.login, userCtrl.respondWithToken)
+router.post('/login',userCtrl.login, userCtrl.respondWithUser)
 
 //get items /api/users/inputs
-router.get('/inputs', checkToken, ensureLoggedIn, userCtrl.getInputsByUser, userCtrl.respondWithInputs)
+router.get('/bookmarks', checkToken, ensureLoggedIn, userCtrl.getBookmarksByUser, userCtrl.respondWithBookmarks)
 
 module.exports = router
