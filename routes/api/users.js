@@ -9,7 +9,7 @@ router.post('/',userCtrl.signUp, userCtrl.respondWithToken)
 
 
 //logIn /api/users/login
-router.post('/login',userCtrl.login, userCtrl.respondWithUser)
+router.post('/login',userCtrl.login, userCtrl.respondWithToken)
 
 //get items /api/users/inputs
 router.get('/bookmarks', checkToken, ensureLoggedIn, userCtrl.getBookmarksByUser, userCtrl.respondWithBookmarks)
