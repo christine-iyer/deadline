@@ -17,10 +17,8 @@ export default function App(){
      name: ''
    })
    const [bookmark, setBookmark] = useState({
-    heading: '',
     title: '',
-    link: '',
-    check: false
+    url: ''
    })
    const [bookmarks, setBookmarks] = useState([])
 
@@ -73,10 +71,8 @@ export default function App(){
             console.error(error)
         } finally {
             setBookmark({
-              heading: '',
-              title: '',
-              link: '',
-              check: false
+                title: '',
+                url: ''
             })
         }
     }
@@ -172,18 +168,15 @@ export default function App(){
         e.preventDefault()
         createBookmark()
     }}>
-        <input type="text" value={bookmark.heading} name="title" onChange={handleChange} placeholder={'Title'}></input>
-        <input type="text" value={bookmark.title} name="url" onChange={handleChange} placeholder={'URL'}></input>
-        <input type="text" value={bookmark.link} name="title" onChange={handleChange} placeholder={'Title'}></input>
-        {'Ready To Eat '}<input type="checkbox" checked={bookmark.check} onChange={(evt) => setBookmark({...bookmark, check: evt.target.checked })}></input><br/>
+        <input type="text" value={bookmark.title} name="title" onChange={handleChange} placeholder={'Title'}></input>
+        <input type="text" value={bookmark.url} name="url" onChange={handleChange} placeholder={'URL'}></input>
         <input type="submit" value="Create Bookmark"/>
     </form>
     <ul>
         { bookmarks.length ? bookmarks.map(item => (
             <li key={item._id}>
                 <h4>{item.title}</h4>
-                <a href={item.link} target="_blank"> {item.link}</a>
-            
+                <a href={item.url} target="_blank"> {item.url}</a>
             </li>
         )): <>No BookMarks Added</>}
     </ul>
